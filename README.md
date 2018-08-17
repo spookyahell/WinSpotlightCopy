@@ -11,3 +11,5 @@ You'll need Python Imaging Library (best to use pillow)
 ```
 pip install pillow
 ```
+
+Use only if you just want to periodically back up images that you are actually recieving, if you want to download MORE I suggest using [ORelio/Spotlight-Downloader](https://github.com/ORelio/Spotlight-Downloader)
