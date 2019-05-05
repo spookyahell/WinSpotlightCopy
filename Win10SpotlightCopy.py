@@ -12,7 +12,7 @@ def get_download_path():
     else:
         return os.path.join(os.path.expanduser('~'), 'downloads')
 
-﻿try:
+try:
 	from PIL import Image #pip install pillow
 except:
 	print('Module not installed, run pip install pillow')
