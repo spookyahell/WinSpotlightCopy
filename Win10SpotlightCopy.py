@@ -39,4 +39,4 @@ for item in flist:
 		else:
 			copy2(SPOTLIGHTDIR + '\\' + item, DESTDIR + '\\' + item + '.jpg')
 			print('File copied')
-#~ input()
+#~ input() 
