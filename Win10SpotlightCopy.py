@@ -7,19 +7,12 @@ except:
 from os import listdir,environ, sep, makedirs
 from os.path import isfile
 from shutil import copy2
-
-def get_download_path():
-	import winreg
-	sub_key = r'SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders'
-	downloads_guid = '{374DE290-123F-4565-9164-39C4925E467B}'
-	with winreg.OpenKey(winreg.HKEY_CURRENT_USER, sub_key) as key:
-		location = winreg.QueryValueEx(key, downloads_guid)[0]
-	return location
+import winreg
 
 USERPROFILE = environ['USERPROFILE']
 
 SPOTLIGHTDIR = fr'{USERPROFILE}\AppData\Local\Packages\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\LocalState\Assets'
-DESTDIR = get_download_path() + '\WinSpotlight'
+DESTDIR = winreg.QueryValueEx(winreg.OpenKey(winreg.HKEY_CURRENT_USER, r'SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders'), '{374DE290-123F-4565-9164-39C4925E467B}')[0] + '\WinSpotlight'
 
 flist = listdir(SPOTLIGHTDIR)
 makedirs(DESTDIR, exist_ok = True)
