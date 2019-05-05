@@ -4,7 +4,7 @@ except:
 	print('Module not installed, run pip install pillow')
 	input('Enter to exit')
 	exit()
-from os import listdir,environ, sep, makedirs
+from os import listdir, environ, sep, makedirs
 from os.path import isfile
 from shutil import copy2
 import winreg
