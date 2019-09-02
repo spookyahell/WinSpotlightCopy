@@ -4,7 +4,7 @@ except:
 	print('Module not installed, run pip install pillow')
 	input('Enter to exit')
 	exit()
-from os import listdir, environ, sep, makedirs
+from os import listdir, environ, makedirs
 from os.path import isfile
 from shutil import copy2
 import winreg
@@ -14,15 +14,17 @@ DOWNLOADDIR = winreg.QueryValueEx(winreg.OpenKey(winreg.HKEY_CURRENT_USER, r'SOF
 
 SPOTLIGHTDIR = fr'{USERPROFILE}\AppData\Local\Packages\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\LocalState\Assets'
 DESTDIR = fr'{DOWNLOADDIR}\WinSpotlight'
+ARCHIVEDIR = fr'{DESTDIR}\Archive'
 
 flist = listdir(SPOTLIGHTDIR)
 makedirs(DESTDIR, exist_ok = True)
+makedirs(ARCHIVEDIR, exist_ok = True)
 for item in flist:
-	im=Image.open(SPOTLIGHTDIR + '\\'+item)
+	im=Image.open(SPOTLIGHTDIR + '\\' + item)
 	width, height = im.size
 
 	if width == 1920 and height == 1080:
-		if isfile(DESTDIR + '\\' + item + '.jpg'):
+		if isfile(DESTDIR + '\\' + item + '.jpg') or isfile(ARCHIVEDIR + '\\' + item + '.jpg'):
 			print('Existing, skipping...')
 		else:
 			copy2(SPOTLIGHTDIR + '\\' + item, DESTDIR + '\\' + item + '.jpg')
