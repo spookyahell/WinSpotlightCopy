@@ -27,7 +27,8 @@ for item in flist:
 		if isfile(ARCHIVEDIR + '\\' + item + '.jpg'):
 			print('Existing, skipping...')
 		else:
-			if not isfile(DESTDIR + '\\' + item + '.jpg'): copy2(SPOTLIGHTDIR + '\\' + item, DESTDIR + '\\' + item + '.jpg')
+			if not isfile(DESTDIR + '\\' + item + '.jpg'):
+				copy2(SPOTLIGHTDIR + '\\' + item, DESTDIR + '\\' + item + '.jpg')
 			copy2(SPOTLIGHTDIR + '\\' + item, ARCHIVEDIR + '\\' + item + '.jpg')
 			print('File copied')
 #~ input()
