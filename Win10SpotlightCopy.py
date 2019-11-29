@@ -24,9 +24,10 @@ for item in flist:
 	width, height = im.size
 
 	if width == 1920 and height == 1080:
-		if isfile(DESTDIR + '\\' + item + '.jpg') or isfile(ARCHIVEDIR + '\\' + item + '.jpg'):
+		if isfile(ARCHIVEDIR + '\\' + item + '.jpg'):
 			print('Existing, skipping...')
 		else:
-			copy2(SPOTLIGHTDIR + '\\' + item, DESTDIR + '\\' + item + '.jpg')
+			if not isfile(DESTDIR + '\\' + item + '.jpg'): copy2(SPOTLIGHTDIR + '\\' + item, DESTDIR + '\\' + item + '.jpg')
+			copy2(SPOTLIGHTDIR + '\\' + item, ARCHIVEDIR + '\\' + item + '.jpg')
 			print('File copied')
 #~ input()
