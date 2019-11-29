@@ -19,6 +19,7 @@ ARCHIVEDIR = fr'{DESTDIR}\Archive'
 flist = listdir(SPOTLIGHTDIR)
 makedirs(DESTDIR, exist_ok = True)
 makedirs(ARCHIVEDIR, exist_ok = True)
+
 for item in flist:
 	im=Image.open(SPOTLIGHTDIR + '\\' + item)
 	width, height = im.size
