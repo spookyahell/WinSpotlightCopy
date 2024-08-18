@@ -1,4 +1,4 @@
-# Win10SpotlightCopy
+# WinSpotlightCopy
 Copy images from the Spotlight (lockscreen images) folder to Downloads\WinSpotlight
 
 Works with Python3.6+, though the most recent version is recomended since supported.<br />https://www.python.org/downloads/release/python-370/
